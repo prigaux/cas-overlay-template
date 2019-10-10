@@ -1,0 +1,20 @@
+{
+  "@class" : "org.apereo.cas.services.RegexRegisteredService",
+  "serviceId" : "^(https|imaps|xxx2)://.*",
+  "name" : "default",
+  "id" : 9997,
+  "description" : "Welcome in here",
+  "evaluationOrder" : 9998,
+  "usernameAttributeProvider" : {
+    "@class" : "org.apereo.cas.services.PrincipalAttributeRegisteredServiceUsernameProvider",
+    "usernameAttribute" : "uid"
+  },
+  "accessStrategy": {
+    "@class" : "org.esupportail.cas.services.ClaExternalIDRegisteredServiceAccessStrategy",
+    "unauthorizedRedirectUrl" : "https://my-jetty-server/claExternalID/",
+    "requiredAttributes" : {
+	    "@class" : "java.util.HashMap",
+	    "uid" : [ "java.util.HashSet", [ ".*" ] ]
+	  }
+  }
+}
